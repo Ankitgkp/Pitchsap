@@ -1,11 +1,12 @@
 import { useState } from "react";
-import { Check, X, Feather, Briefcase, Star, Zap } from "lucide-react";
+import { Check, Feather, Briefcase, Star, Zap } from "lucide-react";
+import { FaCircleCheck, FaCircleXmark } from "react-icons/fa6";
 
 const plans = [
     {
         name: "FREE",
         id: "free",
-        icon: <X className="w-5 h-5" />,
+        icon: <Zap className="w-5 h-5 fill-accent" />,
         tagline: "For Early Ideators",
         price: "₹0",
         period: "/month",
@@ -21,6 +22,12 @@ const plans = [
             "48 hours Support SLA",
         ],
         details: {
+            "Idea Submissions": "2/month",
+            "AI + Consultant Reviews": "2 quick reviews/month",
+            "Consultant Messages": "5 messages to 1 consultant",
+            "Workshop Access": "1/month",
+            "Resource Library": "Free resources only",
+            "Support SLA": "48 hours",
             "1:1 Sessions": false,
             "Pitch Deck Reviews": false,
             "File/Link Uploads": false,
@@ -35,7 +42,7 @@ const plans = [
     {
         name: "ALPHA",
         id: "alpha",
-        icon: <Feather className="w-5 h-5" />,
+        icon: <Feather className="w-5 h-5 fill-accent" />,
         tagline: "For Growing Ideators",
         price: "₹799",
         period: "/month",
@@ -43,6 +50,7 @@ const plans = [
         buttonText: "Get started",
         footer: "Billed monthly (₹799/mo)",
         highlight: true,
+        badge: "Most Popular",
         features: [
             "5/month Idea Submissions",
             "5 in-depth reviews/month (AI+C)",
@@ -52,6 +60,12 @@ const plans = [
             "4 hours Support SLA",
         ],
         details: {
+            "Idea Submissions": "5/month",
+            "AI + Consultant Reviews": "5 in-depth reviews/month",
+            "Consultant Messages": "Unlimited to 5 consultants",
+            "Workshop Access": "3/month",
+            "Resource Library": "Essential pack",
+            "Support SLA": "4 hours",
             "1:1 Sessions": true,
             "Pitch Deck Reviews": "2/month",
             "File/Link Uploads": "4/month",
@@ -66,7 +80,7 @@ const plans = [
     {
         name: "OMEGA",
         id: "omega",
-        icon: <Briefcase className="w-5 h-5" />,
+        icon: <Briefcase className="w-5 h-5 fill-accent" />,
         tagline: "For Investment-Ready Ideators",
         price: "₹1299",
         period: "/month",
@@ -82,6 +96,12 @@ const plans = [
             "1 hour (24/7) Support SLA",
         ],
         details: {
+            "Idea Submissions": "Unlimited",
+            "AI + Consultant Reviews": "Unlimited comprehensive",
+            "Consultant Messages": "Unlimited to all consultants",
+            "Workshop Access": "All workshops",
+            "Resource Library": "Complete pack",
+            "Support SLA": "1 hour (24/7)",
             "1:1 Sessions": true,
             "Pitch Deck Reviews": "Unlimited",
             "File/Link Uploads": "Unlimited",
@@ -96,6 +116,12 @@ const plans = [
 ];
 
 const comparisonFeatures = [
+    "Idea Submissions",
+    "AI + Consultant Reviews",
+    "Consultant Messages",
+    "Workshop Access",
+    "Resource Library",
+    "Support SLA",
     "1:1 Sessions",
     "Pitch Deck Reviews",
     "File/Link Uploads",
@@ -109,10 +135,14 @@ const comparisonFeatures = [
 
 export default function Pricing() {
     const [view, setView] = useState("cards");
+    const isTableView = view === "table";
+
+    const handleViewChange = (nextView) => {
+        setView(nextView);
+    };
 
     return (
         <section className="py-32 relative overflow-hidden bg-bg border-t border-white/5">
-            {/* Background Texture & Glows */}
             <div className="absolute inset-0 z-0">
                 <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff03_1px,transparent_1px),linear-gradient(to_bottom,#ffffff03_1px,transparent_1px)] bg-[size:64px_64px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_100%)]" />
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-accent/10 rounded-full blur-[120px] opacity-50" />
@@ -124,7 +154,7 @@ export default function Pricing() {
                         <Zap className="w-3 h-3 fill-accent" />
                         PLANS & PRICING
                     </div>
-                    
+
                     <h2 className="text-4xl md:text-5xl font-black mb-8 text-white tracking-tighter">
                         Simple, <span className="text-transparent bg-clip-text bg-gradient-to-b from-white to-white/40">Transparent</span> Pricing
                     </h2>
@@ -133,22 +163,38 @@ export default function Pricing() {
                         expert guidance, and investor connections. <span className="text-white">Choose the path that fits your ambition.</span>
                     </p>
 
-                    {/* Refined Switcher Design */}
-                    <div className="flex flex-col items-center gap-3">
-                        <span className="text-[10px] font-black uppercase tracking-[0.2em] text-white/30">
-                            {view === 'cards' ? 'Card View' : 'Comparison Table'}
-                        </span>
-                        <div className="flex items-center gap-4">
-                            <span className={`text-[11px] font-bold uppercase tracking-wider transition-colors duration-300 ${view === 'cards' ? 'text-white' : 'text-white/20'}`}>Cards</span>
-                            <button 
-                                onClick={() => setView(view === 'cards' ? 'table' : 'cards')}
-                                className="relative w-12 h-6 bg-white/5 rounded-full p-1 border border-white/10 transition-all duration-300 hover:border-accent/40 group shadow-inner"
-                                aria-label="Toggle View Mode"
+                    <div className="flex flex-col items-center gap-4">
+                        <div className="inline-flex items-center gap-2 md:gap-4 px-3 md:px-5 py-2 rounded-full bg-white/4 border border-white/15 shadow-[inset_0_1px_0_rgba(255,255,255,0.08)] backdrop-blur-md">
+                            <button
+                                type="button"
+                                onClick={() => handleViewChange("cards")}
+                                className={`text-[11px] md:text-xs font-black uppercase tracking-[0.16em] transition-colors duration-300 px-2 ${!isTableView ? "text-white" : "text-white/35 hover:text-white/60"}`}
+                                aria-pressed={!isTableView}
                             >
-                                <div className={`absolute inset-0 bg-accent/20 rounded-full blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-500`}></div>
-                                <div className={`w-4 h-4 bg-accent rounded-full shadow-[0_0_10px_rgba(139,92,246,0.5)] transform transition-transform duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)] z-10 relative ${view === 'table' ? 'translate-x-[24px]' : 'translate-x-0'}`}></div>
+                                Card View
                             </button>
-                            <span className={`text-[11px] font-bold uppercase tracking-wider transition-colors duration-300 ${view === 'table' ? 'text-white' : 'text-white/20'}`}>Table</span>
+
+                            <button
+                                type="button"
+                                onClick={() => handleViewChange(isTableView ? "cards" : "table")}
+                                aria-label="Toggle view mode"
+                                role="switch"
+                                aria-checked={isTableView}
+                                className="relative w-14 h-8 rounded-full bg-white/6 border border-white/15 p-1 transition-colors duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/30"
+                            >
+                                <span
+                                    className={`block h-5 w-5 rounded-full bg-[#f4f4f5] shadow-[0_1px_2px_rgba(0,0,0,0.4)] transition-transform duration-300 ${isTableView ? "translate-x-5" : "translate-x-0"}`}
+                                />
+                            </button>
+
+                            <button
+                                type="button"
+                                onClick={() => handleViewChange("table")}
+                                className={`text-[11px] md:text-xs font-black uppercase tracking-[0.16em] transition-colors duration-300 px-2 ${isTableView ? "text-white" : "text-white/35 hover:text-white/60"}`}
+                                aria-pressed={isTableView}
+                            >
+                                Comparison Table
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -158,22 +204,25 @@ export default function Pricing() {
                         {plans.map((plan) => (
                             <div
                                 key={plan.id}
-                                className={`flex flex-col p-8 rounded-2xl border transition-all duration-300 bg-surface/20 backdrop-blur-sm relative overflow-hidden group ${
-                                    plan.highlight 
-                                        ? "border-accent/30 shadow-[0_0_40px_-15px_rgba(139,92,246,0.2)] scale-[1.02]" 
+                                className={`flex flex-col p-8 rounded-2xl border transition-all duration-300 bg-surface/20 backdrop-blur-sm relative overflow-hidden group ${plan.highlight
+                                        ? "border-accent/30 shadow-[0_0_40px_-15px_rgba(139,92,246,0.2)] scale-[1.02]"
                                         : "border-white/5 hover:border-white/10"
-                                }`}
+                                    }`}
                             >
-                                {/* Active card glow */}
-                                {plan.highlight && (
-                                    <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-accent to-transparent"></div>
+                                {plan.badge && (
+                                    <div className="absolute top-3 right-3 inline-flex items-center gap-1 px-2 py-1 rounded-full bg-amber-300 text-black text-[10px] font-black uppercase tracking-wide shadow-md">
+                                        <Star className="w-3 h-3 fill-black" />
+                                        {plan.badge}
+                                    </div>
                                 )}
-                                
+
+                                {plan.highlight && (
+                                    <div className="absolute top-0 left-0 right-0 h-1 bg-linear-to-r from-transparent via-accent to-transparent"></div>
+                                )}
+
                                 <div className="mb-8 p-3 rounded-xl bg-white/5 w-fit">
                                     <div className="text-accent scale-110">
-                                        {plan.id === 'free' ? <Zap className="w-5 h-5 fill-accent" /> : 
-                                         plan.id === 'alpha' ? <Feather className="w-5 h-5 fill-accent" /> : 
-                                         <Briefcase className="w-5 h-5 fill-accent" />}
+                                        {plan.icon}
                                     </div>
                                 </div>
 
@@ -192,11 +241,13 @@ export default function Pricing() {
                                 </div>
 
                                 <button
-                                    className={`w-full py-3 rounded-xl font-bold text-xs mb-4 transition-all duration-300 transform active:scale-[0.98] ${
-                                        plan.highlight
-                                            ? "bg-[#e5e5e5] text-black hover:bg-white shadow-lg shadow-white/5"
-                                            : "bg-white/5 text-white/90 hover:bg-white/10 border border-white/10"
-                                    }`}
+                                    className={`w-full py-3 rounded-xl font-bold text-base mb-4 transition-all cursor-pointer ${plan.highlight
+                                            ? "bg-primary hover:bg-primary-dark text-white shadow-[0_3px_0_var(--color-primary-dark)] active:shadow-[0_0px_0_var(--color-primary-dark)] active:translate-y-0.75"
+                                            : plan.id === "omega"
+                                                ? "bg-linear-to-r from-primary/85 to-primary hover:from-primary hover:to-primary-dark text-white border border-primary-light/30 shadow-[0_3px_0_rgba(76,29,149,0.95)] active:shadow-[0_0px_0_rgba(76,29,149,0.95)] active:translate-y-0.75"
+                                            : "bg-[#19172a] hover:bg-[#221f36] text-white border border-white/10 shadow-[0_3px_0_rgba(0,0,0,0.45)] active:shadow-[0_0px_0_rgba(0,0,0,0.45)] active:translate-y-0.75"
+                                        }`}
+                                    style={{ fontFamily: "'Aeonik Pro', sans-serif" }}
                                 >
                                     {plan.buttonText}
                                 </button>
@@ -225,13 +276,27 @@ export default function Pricing() {
                                         <th className="p-8 text-white/30 font-bold uppercase tracking-widest text-[11px]">Compare Features</th>
                                         {plans.map(plan => (
                                             <th key={plan.id} className={`p-8 min-w-[180px] ${plan.highlight ? 'bg-accent/5' : ''}`}>
+                                                <div className="h-7 mb-3 flex items-center">
+                                                    {plan.badge && (
+                                                        <div className="inline-flex items-center gap-1 px-2 py-1 rounded-full bg-amber-300 text-black text-[10px] font-black uppercase tracking-wide shadow-sm">
+                                                            <Star className="w-3 h-3 fill-black" />
+                                                            {plan.badge}
+                                                        </div>
+                                                    )}
+                                                </div>
                                                 <div className="flex items-center gap-2 mb-2">
                                                     <span className={`text-sm font-black tracking-widest ${plan.highlight ? "text-accent" : "text-white/80"}`}>{plan.name}</span>
                                                 </div>
                                                 <div className="text-2xl font-black text-white">{plan.price}</div>
-                                                <button className={`mt-4 w-full py-2 rounded-xl text-xs font-bold transition-all ${
-                                                    plan.highlight ? "bg-[#e5e5e5] text-black" : "bg-white/5 text-white/60 border border-white/10 hover:bg-white/10"
-                                                }`}>
+                                                <button
+                                                    className={`mt-4 w-full py-2.5 rounded-xl text-sm font-bold transition-all cursor-pointer ${plan.highlight
+                                                        ? "bg-primary hover:bg-primary-dark text-white shadow-[0_3px_0_var(--color-primary-dark)] active:shadow-[0_0px_0_var(--color-primary-dark)] active:translate-y-0.75"
+                                                        : plan.id === "omega"
+                                                            ? "bg-linear-to-r from-primary/85 to-primary hover:from-primary hover:to-primary-dark text-white border border-primary-light/30 shadow-[0_3px_0_rgba(76,29,149,0.95)] active:shadow-[0_0px_0_rgba(76,29,149,0.95)] active:translate-y-0.75"
+                                                        : "bg-[#19172a] hover:bg-[#221f36] text-white border border-white/10 shadow-[0_3px_0_rgba(0,0,0,0.45)] active:shadow-[0_0px_0_rgba(0,0,0,0.45)] active:translate-y-0.75"
+                                                    }`}
+                                                    style={{ fontFamily: "'Aeonik Pro', sans-serif" }}
+                                                >
                                                     {plan.buttonText}
                                                 </button>
                                             </th>
@@ -245,9 +310,9 @@ export default function Pricing() {
                                             {plans.map(plan => (
                                                 <td key={plan.id} className={`p-6 ${plan.highlight ? 'bg-accent/5' : ''}`}>
                                                     {plan.details[feature] === true ? (
-                                                        <Check className="w-5 h-5 text-accent" />
+                                                            <FaCircleCheck className="w-4 h-4 text-emerald-400" />
                                                     ) : plan.details[feature] === false ? (
-                                                        <X className="w-5 h-5 text-red-500/30" />
+                                                            <FaCircleXmark className="w-4 h-4 text-rose-400/90" />
                                                     ) : (
                                                         <span className="text-sm font-bold text-white/70">{plan.details[feature]}</span>
                                                     )}
@@ -262,7 +327,6 @@ export default function Pricing() {
                 )}
             </div>
 
-            {/* Background Decor */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-accent/5 rounded-full blur-[120px] pointer-events-none -z-10" />
         </section>
     );
