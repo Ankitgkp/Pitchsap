@@ -32,9 +32,9 @@ export default function FooterCTA() {
     return (
         <section className="py-24 relative overflow-hidden bg-bg border-t border-white/5">
             <div className="container mx-auto px-4 max-w-6xl">
-                <div className="bg-white/[0.02] border border-white/10 rounded-[2.5rem] p-8 md:p-16 relative overflow-hidden group">
+                <div className="bg-white/[0.02] border border-white/10 rounded-[2.5rem] p-6 md:p-16 relative overflow-hidden group">
                     <div className="absolute inset-0 bg-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur-3xl -z-10" />
-                    <div className="grid lg:grid-cols-2 gap-16 items-center">
+                    <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
                         <div className="text-left">
                             <h2 className="text-4xl md:text-5xl font-black tracking-tighter italic bg-clip-text text-transparent bg-[linear-gradient(180deg,#ffffffe6,#ffffffbf)] mb-6 leading-[1.1]">
                                 Ready to Launch Your Startup?
@@ -55,7 +55,7 @@ export default function FooterCTA() {
                             </div>
                         </div>
 
-                        <div className="relative h-[400px] flex items-center justify-center lg:justify-end pr-20">
+                        <div className="relative h-[300px] md:h-[400px] flex items-center justify-center lg:justify-end lg:pr-20">
                             <DisplayCards cards={solutionCards} />
                         </div>
                     </div>

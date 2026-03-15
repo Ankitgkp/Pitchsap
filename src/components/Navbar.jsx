@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 
+import logo from "../assets/pitchsap_logo.png";
+
 const links = ["How It Works", "Benefits", "Consultants", "Blogs", "Contact Us"];
 
 export default function Navbar() {
@@ -14,8 +16,12 @@ export default function Navbar() {
 
   return (
     <nav className={`fixed left-1/2 -translate-x-1/2 z-50 rounded-2xl border border-white/10 backdrop-blur-xl flex items-center justify-between transition-all duration-300 ${scrolled ? "top-2 w-[90%] max-w-5xl px-4 py-2" : "top-4 w-[95%] max-w-6xl px-6 py-3"} bg-surface/80`}>
-      <a href="/" className="flex items-center gap-2">
-        <img src="/favicon.svg" alt="Pitchsap" className={`transition-all duration-300 ${scrolled ? "w-6 h-6" : "w-8 h-8"}`} />
+      <a href="/" className="flex items-center gap-3">
+        <img 
+          src={logo} 
+          alt="Pitchsap Logo" 
+          className={`transition-all duration-300 object-contain ${scrolled ? "h-6" : "h-8"}`} 
+        />
         <span className="font-medium text-xl bg-clip-text text-transparent" style={{ fontFamily: "'Aeonik Pro', sans-serif", backgroundImage: "linear-gradient(180deg, #ffffffe6, #ffffffbf)" }}>Pitchsap</span>
       </a>
 

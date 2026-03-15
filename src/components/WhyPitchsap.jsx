@@ -1,13 +1,12 @@
 import BentoCard from "./BentoCard";
+import logo from "../assets/pitchsap_logo.png";
 
 export default function WhyPitchsap() {
     return (
         <section className="relative z-10 max-w-6xl mx-auto px-4 pb-24 pt-0" id="why-pitchsap">
             <div className="flex justify-center mb-16">
                 <div className="flex items-center gap-4 bg-black/80 border border-white/10 rounded-full px-6 py-3 shadow-2xl backdrop-blur-xl">
-                    <div className="w-6 h-6 bg-primary flex items-center justify-center rounded-sm text-xs font-bold text-white shrink-0">
-                        P
-                    </div>
+                    <img src={logo} alt="Pitchsap" className="w-8 h-8 object-contain shrink-0" />
                     <div className="text-white/90 text-sm sm:text-lg font-medium tracking-tight" style={{ fontFamily: "'Aeonik Pro', sans-serif" }}>
                         Why <span className="text-secondary">Pitchsap</span> ?
                     </div>
@@ -48,7 +47,7 @@ export default function WhyPitchsap() {
                     className="md:col-span-1 min-h-[300px] border-secondary/20 hover:border-secondary/40"
                 >
                     <div className="absolute top-6 right-6 w-12 h-12 bg-secondary/10 rounded-full flex items-center justify-center text-secondary/60">
-                         <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" /></svg>
+                        <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" /></svg>
                     </div>
                 </BentoCard>
                 <BentoCard
@@ -57,7 +56,7 @@ export default function WhyPitchsap() {
                     className="md:col-span-1 min-h-[300px] border-secondary/20 hover:border-secondary/40"
                 >
                     <div className="flex items-center justify-center h-full opacity-25">
-                         <svg className="w-16 h-16 text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+                        <svg className="w-16 h-16 text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
                     </div>
                 </BentoCard>
 
