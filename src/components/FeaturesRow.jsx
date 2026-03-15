@@ -17,7 +17,7 @@ const features = [
 
 export default function FeaturesRow() {
     return (
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-4xl mx-auto border-t border-white/10 pt-12">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-4xl mx-auto border-t border-white/10 pt-12 px-4">
             {features.map((f) => (
                 <FeatureCard key={f.title} {...f} />
             ))}
