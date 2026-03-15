@@ -3,6 +3,7 @@ import Hero from "../components/Hero";
 import BentoGrid from "../components/BentoGrid";
 import WhyPitchsap from "../components/WhyPitchsap";
 import HowToMaximize from "../components/HowToMaximize";
+import Pricing from "../components/Pricing";
 import BackgroundLines from "../components/BackgroundLines";
 import FloatingElements from "../components/FloatingElements";
 
@@ -16,6 +17,7 @@ export default function Landing() {
       <BentoGrid />
       <WhyPitchsap />
       <HowToMaximize />
+      <Pricing />
     </main>
   );
 }
