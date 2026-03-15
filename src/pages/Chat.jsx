@@ -17,7 +17,7 @@ export default function Chat() {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const res = await axios.get("http://localhost:5001/api/users");
+        const res = await axios.get("https://pitchsapapi.1forge.in/api/users");
         setUsers(res.data.filter(u => u._id !== currentUserId));
       } catch (err) {
         console.error("Failed to fetch users", err);
@@ -28,7 +28,7 @@ export default function Chat() {
     const connectWS = () => {
       if (ws.current?.readyState === WebSocket.OPEN) return;
 
-      ws.current = new WebSocket("ws://localhost:5001");
+      ws.current = new WebSocket("wss://pitchsapapi.1forge.in");
 
       ws.current.onopen = () => {
         ws.current.send(JSON.stringify({ type: "auth", userId: currentUserId }));
@@ -67,7 +67,7 @@ export default function Chat() {
     const fetchHistory = async () => {
       if (!selectedUser || !currentUserId) return;
       try {
-        const res = await axios.get(`http://localhost:5001/api/messages/${currentUserId}/${selectedUser._id}`);
+        const res = await axios.get(`https://pitchsapapi.1forge.in/api/messages/${currentUserId}/${selectedUser._id}`);
         const historicalMessages = res.data.map(m => ({
           text: m.text,
           sentByMe: m.sender === currentUserId

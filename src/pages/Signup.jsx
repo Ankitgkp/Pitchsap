@@ -9,7 +9,7 @@ export default function Signup() {
 
   const handleSignup = async (data) => {
     try {
-      const response = await axios.post("http://localhost:5001/api/auth/signup", data);
+      const response = await axios.post("https://pitchsapapi.1forge.in/api/auth/signup", data);
       localStorage.setItem("token", response.data.token);
       localStorage.setItem("userId", response.data.userId);
       navigate("/chat");
