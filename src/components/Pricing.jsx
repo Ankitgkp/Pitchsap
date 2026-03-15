@@ -268,14 +268,14 @@ export default function Pricing() {
                         ))}
                     </div>
                 ) : (
-                    <div className="max-w-5xl mx-auto">
-                        <div className="overflow-x-auto rounded-3xl bg-surface/20 border border-white/5 shadow-2xl backdrop-blur-sm">
-                            <table className="w-full text-left border-collapse">
+                    <div className="max-w-5xl mx-auto px-0 md:px-4 w-full">
+                        <div className="overflow-x-auto rounded-none md:rounded-3xl bg-surface/20 border-y md:border border-white/5 shadow-2xl backdrop-blur-sm -mx-4 md:mx-0">
+                            <table className="w-full text-left border-collapse min-w-[600px] md:min-w-0">
                                 <thead>
                                     <tr className="border-b border-white/5">
-                                        <th className="p-8 text-white/30 font-bold uppercase tracking-widest text-[11px]">Compare Features</th>
+                                        <th className="p-4 md:p-8 text-white/30 font-bold uppercase tracking-widest text-[10px] md:text-[11px] sticky left-0 z-20 bg-[#070514]/95 md:bg-transparent backdrop-blur-xl md:backdrop-blur-none border-r border-white/5 md:border-r-0 shadow-[4px_0_24px_-4px_rgba(0,0,0,0.3)] md:shadow-none">Compare Features</th>
                                         {plans.map(plan => (
-                                            <th key={plan.id} className={`p-8 min-w-[180px] ${plan.highlight ? 'bg-accent/5' : ''}`}>
+                                            <th key={plan.id} className={`p-5 md:p-8 min-w-[160px] md:min-w-[180px] ${plan.highlight ? 'bg-accent/5' : ''}`}>
                                                 <div className="h-7 mb-3 flex items-center">
                                                     {plan.badge && (
                                                         <div className="inline-flex items-center gap-1 px-2 py-1 rounded-full bg-amber-300 text-black text-[10px] font-black uppercase tracking-wide shadow-sm">
@@ -306,9 +306,9 @@ export default function Pricing() {
                                 <tbody>
                                     {comparisonFeatures.map((feature, idx) => (
                                         <tr key={idx} className="group hover:bg-white/5 transition-colors border-b border-white/5 last:border-0">
-                                            <td className="p-6 pl-8 text-white/50 text-sm font-medium">{feature}</td>
+                                            <td className="p-4 md:p-6 md:pl-8 text-white/50 text-xs md:text-sm font-medium sticky left-0 z-10 bg-[#070514]/95 md:bg-transparent backdrop-blur-xl md:backdrop-blur-none border-r border-white/5 md:border-r-0 group-hover:bg-[#120f26]/95 md:group-hover:bg-transparent transition-colors shadow-[4px_0_24px_-4px_rgba(0,0,0,0.3)] md:shadow-none">{feature}</td>
                                             {plans.map(plan => (
-                                                <td key={plan.id} className={`p-6 ${plan.highlight ? 'bg-accent/5' : ''}`}>
+                                                <td key={plan.id} className={`p-4 md:p-6 ${plan.highlight ? 'bg-accent/5' : ''}`}>
                                                     {plan.details[feature] === true ? (
                                                             <FaCircleCheck className="w-4 h-4 text-emerald-400" />
                                                     ) : plan.details[feature] === false ? (
