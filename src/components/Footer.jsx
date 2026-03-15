@@ -4,7 +4,7 @@ import {
   Linkedin,
   Facebook,
   Instagram,
-  Zap
+  Rocket
 } from "lucide-react";
 
 export default function Footer() {
@@ -45,7 +45,7 @@ export default function Footer() {
       navLinks={navLinks}
       creatorName="Ankit Pandey"
       creatorUrl="https://ankit.1forge.in"
-      brandIcon={<Zap className="w-8 sm:w-10 md:w-12 h-8 sm:h-10 md:h-12 text-bg drop-shadow-lg" />}
+      brandIcon={<Rocket className="w-8 sm:w-10 md:w-12 h-8 sm:h-10 md:h-12 text-bg transform -rotate-45 drop-shadow-lg" />}
     />
   );
 }
