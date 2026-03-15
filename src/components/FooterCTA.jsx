@@ -36,7 +36,7 @@ export default function FooterCTA() {
                     <div className="absolute inset-0 bg-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur-3xl -z-10" />
                     <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
                         <div className="text-left">
-                            <h2 className="text-4xl md:text-5xl font-black tracking-tighter italic bg-clip-text text-transparent bg-[linear-gradient(180deg,#ffffffe6,#ffffffbf)] mb-6 leading-[1.1]">
+                            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tighter italic bg-clip-text text-transparent bg-[linear-gradient(180deg,#ffffffe6,#ffffffbf)] mb-6 leading-[1.2] md:leading-[1.1] text-balance">
                                 Ready to Launch Your Startup?
                             </h2>
                             <p className="text-zinc-400 text-lg mb-10 max-w-xl font-medium leading-relaxed">
