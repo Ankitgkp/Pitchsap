@@ -205,8 +205,8 @@ export default function Pricing() {
                             <div
                                 key={plan.id}
                                 className={`flex flex-col p-8 rounded-2xl border transition-all duration-300 bg-surface/20 backdrop-blur-sm relative overflow-hidden group ${plan.highlight
-                                        ? "border-accent/30 shadow-[0_0_40px_-15px_rgba(139,92,246,0.2)] scale-[1.02]"
-                                        : "border-white/5 hover:border-white/10"
+                                    ? "border-accent/30 shadow-[0_0_40px_-15px_rgba(139,92,246,0.2)] scale-[1.02]"
+                                    : "border-white/5 hover:border-white/10"
                                     }`}
                             >
                                 {plan.badge && (
@@ -242,9 +242,9 @@ export default function Pricing() {
 
                                 <button
                                     className={`w-full py-3 rounded-xl font-bold text-base mb-4 transition-all cursor-pointer ${plan.highlight
-                                            ? "bg-primary hover:bg-primary-dark text-white shadow-[0_3px_0_var(--color-primary-dark)] active:shadow-[0_0px_0_var(--color-primary-dark)] active:translate-y-0.75"
-                                            : plan.id === "omega"
-                                                ? "bg-linear-to-r from-primary/85 to-primary hover:from-primary hover:to-primary-dark text-white border border-primary-light/30 shadow-[0_3px_0_rgba(76,29,149,0.95)] active:shadow-[0_0px_0_rgba(76,29,149,0.95)] active:translate-y-0.75"
+                                        ? "bg-primary hover:bg-primary-dark text-white shadow-[0_3px_0_var(--color-primary-dark)] active:shadow-[0_0px_0_var(--color-primary-dark)] active:translate-y-0.75"
+                                        : plan.id === "omega"
+                                            ? "bg-linear-to-r from-primary/85 to-primary hover:from-primary hover:to-primary-dark text-white border border-primary-light/30 shadow-[0_3px_0_rgba(76,29,149,0.95)] active:shadow-[0_0px_0_rgba(76,29,149,0.95)] active:translate-y-0.75"
                                             : "bg-[#19172a] hover:bg-[#221f36] text-white border border-white/10 shadow-[0_3px_0_rgba(0,0,0,0.45)] active:shadow-[0_0px_0_rgba(0,0,0,0.45)] active:translate-y-0.75"
                                         }`}
                                     style={{ fontFamily: "'Aeonik Pro', sans-serif" }}
@@ -293,8 +293,8 @@ export default function Pricing() {
                                                         ? "bg-primary hover:bg-primary-dark text-white shadow-[0_3px_0_var(--color-primary-dark)] active:shadow-[0_0px_0_var(--color-primary-dark)] active:translate-y-0.75"
                                                         : plan.id === "omega"
                                                             ? "bg-linear-to-r from-primary/85 to-primary hover:from-primary hover:to-primary-dark text-white border border-primary-light/30 shadow-[0_3px_0_rgba(76,29,149,0.95)] active:shadow-[0_0px_0_rgba(76,29,149,0.95)] active:translate-y-0.75"
-                                                        : "bg-[#19172a] hover:bg-[#221f36] text-white border border-white/10 shadow-[0_3px_0_rgba(0,0,0,0.45)] active:shadow-[0_0px_0_rgba(0,0,0,0.45)] active:translate-y-0.75"
-                                                    }`}
+                                                            : "bg-[#19172a] hover:bg-[#221f36] text-white border border-white/10 shadow-[0_3px_0_rgba(0,0,0,0.45)] active:shadow-[0_0px_0_rgba(0,0,0,0.45)] active:translate-y-0.75"
+                                                        }`}
                                                     style={{ fontFamily: "'Aeonik Pro', sans-serif" }}
                                                 >
                                                     {plan.buttonText}
@@ -310,9 +310,9 @@ export default function Pricing() {
                                             {plans.map(plan => (
                                                 <td key={plan.id} className={`p-4 md:p-6 ${plan.highlight ? 'bg-accent/5' : ''}`}>
                                                     {plan.details[feature] === true ? (
-                                                            <FaCircleCheck className="w-4 h-4 text-emerald-400" />
+                                                        <FaCircleCheck className="w-4 h-4 text-emerald-400" />
                                                     ) : plan.details[feature] === false ? (
-                                                            <FaCircleXmark className="w-4 h-4 text-rose-400/90" />
+                                                        <FaCircleXmark className="w-4 h-4 text-rose-400/90" />
                                                     ) : (
                                                         <span className="text-sm font-bold text-white/70">{plan.details[feature]}</span>
                                                     )}
