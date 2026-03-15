@@ -1,6 +1,6 @@
 import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
-import FeaturesRow from "../components/FeaturesRow";
+import BentoGrid from "../components/BentoGrid";
 import BackgroundLines from "../components/BackgroundLines";
 import FloatingElements from "../components/FloatingElements";
 
@@ -11,7 +11,7 @@ export default function Landing() {
       <BackgroundLines />
       <Navbar />
       <Hero />
-      <FeaturesRow />
+      <BentoGrid />
     </main>
   );
 }
