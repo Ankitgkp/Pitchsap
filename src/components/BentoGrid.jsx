@@ -2,7 +2,7 @@ import BentoCard from "./BentoCard";
 
 export default function BentoGrid() {
     return (
-        <section className="relative z-10 max-w-6xl mx-auto px-4 pb-24 pt-0 -mt-32" id="how-it-works">
+        <section className="relative z-10 max-w-6xl mx-auto px-4 pb-24 pt-0 mt-4 md:-mt-32" id="how-it-works">
             <div className="text-center mb-16">
                 <h2 className="text-sm font-semibold text-primary uppercase tracking-widest mb-4">How Pitchsap Works</h2>
                 <h3 className="text-3xl sm:text-4xl font-bold text-white mb-6" style={{ fontFamily: "'Aeonik Pro', sans-serif" }}>

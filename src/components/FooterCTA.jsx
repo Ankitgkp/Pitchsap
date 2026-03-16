@@ -17,7 +17,7 @@ export default function FooterCTA() {
             description: "Expert Scale Strategies",
             iconClassName: "text-accent",
             titleClassName: "text-accent",
-            className: "[grid-area:stack] translate-x-12 translate-y-10 hover:-translate-y-1 before:absolute before:w-[100%] before:outline-1 before:rounded-xl before:outline-border before:h-[100%] before:content-[''] before:bg-blend-overlay before:bg-background/50 grayscale-[100%] hover:before:opacity-0 before:transition-opacity before:duration-700 hover:grayscale-0 before:left-0 before:top-0",
+            className: "[grid-area:stack] translate-x-6 sm:translate-x-12 translate-y-5 sm:translate-y-10 hover:-translate-y-1 before:absolute before:w-[100%] before:outline-1 before:rounded-xl before:outline-border before:h-[100%] before:content-[''] before:bg-blend-overlay before:bg-background/50 grayscale-[100%] hover:before:opacity-0 before:transition-opacity before:duration-700 hover:grayscale-0 before:left-0 before:top-0",
         },
         {
             icon: <TrendingUp className="size-4 text-accent" />,
@@ -25,7 +25,7 @@ export default function FooterCTA() {
             description: "Venture Ready Portfolios",
             iconClassName: "text-accent",
             titleClassName: "text-accent",
-            className: "[grid-area:stack] translate-x-24 translate-y-20 hover:translate-y-10",
+            className: "[grid-area:stack] translate-x-12 sm:translate-x-24 translate-y-10 sm:translate-y-20 hover:translate-y-10",
         },
     ];
 
@@ -39,7 +39,7 @@ export default function FooterCTA() {
                             <h2 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tighter italic bg-clip-text text-transparent bg-[linear-gradient(180deg,#ffffffe6,#ffffffbf)] mb-6 leading-[1.2] md:leading-[1.1] text-balance">
                                 Ready to Launch Your Startup?
                             </h2>
-                            <p className="text-zinc-400 text-lg mb-10 max-w-xl font-medium leading-relaxed">
+                            <p className="text-zinc-400 text-base sm:text-lg mb-10 max-w-xl font-medium leading-relaxed">
                                 Join thousands of successful entrepreneurs who turned their ideas into thriving businesses with <span className="text-white hover:text-accent transition-colors cursor-pointer">Pitchsap</span>.
                             </p>
 
